@@ -1,8 +1,9 @@
-import { FETCH_DATA, UPDATE_AMIIBO } from "../actions/actions";
+import { FETCH_DATA, UPDATE_AMIIBO, SET_ERROR } from "../actions/actions";
 
 const initialState = {
   amiibo: [],
-  isFetchingData: false
+  isFetchingData: false,
+  error: ""
 };
 
 export const amiiboReducer = (state = initialState, action) => {
@@ -16,7 +17,14 @@ export const amiiboReducer = (state = initialState, action) => {
     case UPDATE_AMIIBO:
       return {
         ...state,
-        amiibo: action.payload
+        amiibo: action.payload,
+        isFetchingData: false
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        isFetchingData: false,
+        error: action.payload
       };
     default:
       return state;

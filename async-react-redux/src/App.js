@@ -5,7 +5,8 @@ import { Provider } from "react-redux";
 import { amiiboReducer as reducer } from "./reducers/reducers";
 import thunk from "redux-thunk";
 
-import AmiiboForm from "./components/amiibo";
+import AmiiboForm from "./components/amiiboForm";
+import AmiiboList from "./components/amiiboList";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -15,6 +16,7 @@ function App() {
       <div className="App">
         <h1>Amiibos</h1>
         <AmiiboForm />
+        <AmiiboList />
       </div>
     </Provider>
   );

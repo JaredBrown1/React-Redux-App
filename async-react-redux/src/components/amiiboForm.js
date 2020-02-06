@@ -1,7 +1,5 @@
 import React from "react";
-
 import { connect } from "react-redux";
-
 import { getData } from "../actions/actions";
 
 const AmiiboForm = props => {
@@ -11,13 +9,13 @@ const AmiiboForm = props => {
   };
 
   return (
-    <div>
+    <>
       {props.isFetchingData ? (
         <div>** We are fetching data **</div>
       ) : (
         <button onClick={handleGetData}>get data</button>
       )}
-    </div>
+    </>
   );
 };
 
