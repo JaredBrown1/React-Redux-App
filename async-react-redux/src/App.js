@@ -1,19 +1,20 @@
 import React from "react";
 import "./App.css";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { amiiboReducer as reducer } from "./reducers/reducers";
+import thunk from "redux-thunk";
 
-import Amiibo from "./components/amiibo";
+import AmiiboForm from "./components/amiibo";
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk));
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <h1>React Redux App</h1>
-        <Amiibo />
+        <h1>Amiibos</h1>
+        <AmiiboForm />
       </div>
     </Provider>
   );

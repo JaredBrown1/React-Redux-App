@@ -2,18 +2,29 @@ import React from "react";
 
 import { connect } from "react-redux";
 
-const Amiibo = props => {
+import { getData } from "../actions/actions";
+
+const AmiiboForm = props => {
+  const handleGetData = e => {
+    e.preventDefault();
+    props.getData();
+  };
+
   return (
     <div>
-      <div>{props.amiibo}</div>
+      {props.isFetchingData ? (
+        <div>** We are fetching data **</div>
+      ) : (
+        <button onClick={handleGetData}>get data</button>
+      )}
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    amiibo: state.amiibo
+    isFetchingData: state.isFetchingData
   };
 };
 
-export default connect(mapStateToProps, {})(Amiibo);
+export default connect(mapStateToProps, { getData })(AmiiboForm);
