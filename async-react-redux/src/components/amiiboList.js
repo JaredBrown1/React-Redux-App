@@ -10,10 +10,13 @@ const AmiiboList = props => {
 
   return (
     <div>
+      {console.log(props)}
       {props.error ? (
         <div className="error">{props.error}</div>
       ) : (
-        props.amiibo.map(amiibo => <div>{amiibo.image}</div>)
+        props.amiibo.map(amiibo => (
+          <img className="images" src={amiibo.image} />
+        ))
       )}
     </div>
   );

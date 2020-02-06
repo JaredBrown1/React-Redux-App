@@ -7,10 +7,10 @@ export const SET_ERROR = "SET_ERROR";
 export const getData = () => dispatch => {
   dispatch({ type: FETCH_DATA });
   axios
-    .get("https://www.amiiboapi.com/api/amiibo/?character=zelda")
+    .get("https://www.amiiboapi.com/api/amiibo/")
     .then(res => {
       console.log("from .then", res);
-      dispatch({ type: UPDATE_AMIIBO, payload: res.data });
+      dispatch({ type: UPDATE_AMIIBO, payload: { amiibo: res.data.amiibo } });
     })
     .catch(err => {
       console.log("error fetching data from api. err: ", err);

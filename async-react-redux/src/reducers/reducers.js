@@ -17,7 +17,7 @@ export const amiiboReducer = (state = initialState, action) => {
     case UPDATE_AMIIBO:
       return {
         ...state,
-        amiibo: action.payload,
+        amiibo: action.payload.amiibo,
         isFetchingData: false
       };
     case SET_ERROR:
