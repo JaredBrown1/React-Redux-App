@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-h1 {
-  color: red;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -39,8 +35,4 @@ h1 {
   to {
     transform: rotate(360deg);
   }
-}
-
-div.error {
-  color: red;
 }
